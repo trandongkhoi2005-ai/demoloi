@@ -4,6 +4,28 @@ namespace UnityEngine {
         public static void Destroy(Object o) {}
         public static void DontDestroyOnLoad(Object o) {}
     }
+
+public class Mathf {
+        public static float Sqrt(float f) { return (float)System.Math.Sqrt(f); }
+        public static float Clamp(float v, float min, float max) { return v<min?min:v>max?max:v; }
+        public static float Atan2(float y, float x) { return (float)System.Math.Atan2(y,x); }
+        public static float Min(float a, float b) { return a<b?a:b; }
+        public static float Abs(float f) { return f<0?-f:f; }
+        
+        // ===== BỔ SUNG CÁC HÀM CÒN THIẾU =====
+        public static int RoundToInt(float f) { return (int)System.Math.Round(f); }
+        public static float Cos(float f) { return (float)System.Math.Cos(f); }
+        public static float Sin(float f) { return (float)System.Math.Sin(f); }
+        public static float Tan(float f) { return (float)System.Math.Tan(f); }
+        public static float Acos(float f) { return (float)System.Math.Acos(f); }
+        public static float Asin(float f) { return (float)System.Math.Asin(f); }
+        public static float Pow(float f, float p) { return (float)System.Math.Pow(f, p); }
+        // ====================================
+
+        public const float Rad2Deg = 57.29578f;
+        public const float Deg2Rad = 0.0174532924f; // Thêm hằng số này
+        public const float PI = 3.14159265f;
+    }
     public class Component : Object {
         public GameObject gameObject;
         public Transform transform;
