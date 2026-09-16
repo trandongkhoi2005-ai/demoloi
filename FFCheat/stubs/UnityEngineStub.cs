@@ -159,6 +159,26 @@ namespace UnityEngine {
         public void SimpleMove(Vector3 s) {}
     }
     public class Rigidbody : Component { public Vector3 velocity; }
+
+    // ===== FIX CS0234: Thêm Collider và các subclass =====
+    public class Collider : Component {
+        public bool enabled;
+        public Bounds bounds;
+        public Transform transform;
+    }
+    public class BoxCollider : Collider { public Vector3 size; public Vector3 center; }
+    public class SphereCollider : Collider { public float radius; public Vector3 center; }
+    public class CapsuleCollider : Collider { public float radius; public float height; public Vector3 center; }
+    public class MeshCollider : Collider { }
+    public struct Bounds {
+        public Vector3 center;
+        public Vector3 size;
+        public Vector3 extents { get { return new Vector3(size.x/2, size.y/2, size.z/2); } }
+        public Bounds(Vector3 c, Vector3 s) { center=c; size=s; }
+        public bool Contains(Vector3 p) { return false; }
+    }
+    // =====================================================
+
     public struct RaycastHit { public Vector3 point; public Transform transform; }
     public class Physics {
         public static bool Raycast(Vector3 o, Vector3 d, out RaycastHit h, float dist) {
