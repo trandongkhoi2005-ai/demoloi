@@ -16,6 +16,14 @@ namespace COW
         HighFPS144 = 4,
     }
 
+public partial class Player
+    {
+        public GameObject gameObject;  // <-- Đảm bảo dòng này tồn tại
+        public Transform  transform;   // <-- Và dòng này nữa
+
+        // ... các hàm khác giữ nguyên
+    }
+
     public partial class GameFacade
     {
         public static GameFacade Instance { get; private set; }
